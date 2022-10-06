@@ -7,14 +7,18 @@ class Show extends React.Component {
       <div>
       <h1> Gotta Catch 'Em All </h1>
 
-      <h2>{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</h2>
+      <h2>{capitalizeFirstLetter(pokemon.name)}</h2>
 
-      <img src={pokemon.img}/>
+      <img src={pokemon.img} alt={capitalizeFirstLetter(pokemon.name)}/>
 
       </div>
      );
     }
  }
+ function capitalizeFirstLetter(string) {
+   return string.charAt(0).toUpperCase() + string.slice(1);
+ }
+
 
 
  module.exports = Show;
