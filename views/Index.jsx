@@ -1,32 +1,24 @@
-const React = require('react')
-// const pokemon = require('../models/pokemon.js')
+const React = require('react');
+const pokemon = require('../models/pokemon');
 
-const myStyle = {
-    color: '#ffffff',
-    backgroundColor: '#000000',
-    };
 
 class Index extends React.Component{
-    render(){
-        const { pokemon } = this.props
+    render() {
+
         return(
             <div>
-                  <h1>Pokemon Index Page</h1>
-                  <ul>
-                      {pokemon.map((pokemon, i) => {
-                          return (
-                              <li>
-                                  The{' '}
-                                  <a href={`/pokemon/${i}`}>
-                                      {pokemon}
-                                  </a>
-                              </li>
-                          );
-                      })}
-                  </ul>
+                <h1>Pokemon</h1>
+                <ul>
+                   {pokemon.map((pokemon, idx) => (
+                     <li><a href={`pokemon/${idx}`}>{capitalizeFirstLetter(pokemon.name)}</a>{" "}<img src={pokemon.img} /></li>
+                   ))} 
+                </ul>
             </div>
         )
     }
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
 module.exports = Index
